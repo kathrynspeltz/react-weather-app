@@ -6,31 +6,28 @@ const CurrentWeather = ({ data }) => {
             <div className="top">
                 <div>
                     <p className="city">{data.city}</p>
-                    <p className="weather-description">Sunny</p>
+                    <p className="weather-description">{data.weather[0].description}</p>
                 </div>
-                <img alt="weather" className="weather-icon" src="icons/01d.png" />
+                <img alt="weather" className="weather-icon" src={`icons/${data.weather[0].icon}.png`} />
             </div>
             <div className="bottom">
-                <p className="temperature">18°F</p>
+                <p className="temperature">{Math.round(data.main.temp)}°F</p>
                 <div className="details">
                     <div className="parameter-row">
-                        <span className="parameter-label">Details</span>
-                    </div>
-                    <div className="parameter-row">
                         <span className="parameter-label">Feels like</span>
-                        <span className="parameter-value">8°F</span>
+                        <span className="parameter-value">{data.main.feels_like}</span>
                     </div>
                     <div className="parameter-row">
                         <span className="parameter-label">Wind</span>
-                        <span className="parameter-value">5 m/s</span>
+                        <span className="parameter-value">{data.wind.speed} mph</span>
                     </div>
                     <div className="parameter-row">
                         <span className="parameter-label">Humidity</span>
-                        <span className="parameter-value">15%</span>
+                        <span className="parameter-value">{data.main.humidity}</span>
                     </div>
                     <div className="parameter-row">
                         <span className="parameter-label">Pressure</span>
-                        <span className="parameter-value">15 hPa</span>
+                        <span className="parameter-value">{data.main.pressure}</span>
                     </div>
                 </div>
             </div>
