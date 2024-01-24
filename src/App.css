@@ -1,4 +1,10 @@
 .container {
-  max-width: 60%;
+  width: 60%;
+  min-width: 200px;
   margin: 20px auto;
+}
+
+h1,
+h2 {
+  text-align: center;
 }
