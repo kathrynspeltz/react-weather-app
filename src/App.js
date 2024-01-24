@@ -5,12 +5,14 @@ import Forecast from './components/forecast/forecast';
 import CurrentWeather from './components/current-weeather/current-weather';
 import { weather_api_url, weather_api_key } from './api';
 import { useState } from 'react';
+import ForecastGraph from './components/forecast/forecastGraph';
 
 
 function App() {
 
   const [currentWeather, setCurrentWeather] = useState(null)
   const [forecast, setForecast] = useState(null)
+  const [forecastGraph, setForecastGraph] = useState(null)
   const [currentAirPollution, setAirPollution] = useState(null)
 
   const handleOnSearchChange = (searchData) => {
@@ -28,6 +30,7 @@ function App() {
 
         setCurrentWeather({ city: searchData.label, ...weatherResponse, })
         setForecast({ city: searchData.label, ...forecastResponse });
+        setForecastGraph({ city: searchData.label, ...forecastResponse });
         setAirPollution({ city: searchData.label, ...airPollutionResponse })
       })
       .catch((err) => console.log(err))
@@ -42,6 +45,7 @@ function App() {
       <Search onSearchChange={handleOnSearchChange} />
       {currentWeather && <CurrentWeather data={currentWeather} airData={currentAirPollution} />}
       {forecast && <Forecast data={forecast} />}
+      {forecast && <ForecastGraph data={forecastGraph} />}
     </div>
   );
 }
