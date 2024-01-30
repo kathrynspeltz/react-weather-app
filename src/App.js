@@ -44,8 +44,9 @@ function App() {
       <h1>Let's Talk About The Weather!</h1>
       <Search onSearchChange={handleOnSearchChange} />
       {currentWeather && <CurrentWeather data={currentWeather} airData={currentAirPollution} />}
-      {forecast && <Forecast data={forecast} />}
       {forecast && <ForecastGraph data={forecastGraph} />}
+      {forecast && <Forecast data={forecast} />}
+
     </div>
   );
 }

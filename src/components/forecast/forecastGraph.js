@@ -1,5 +1,7 @@
 
 import { Line } from 'react-chartjs-2';
+import 'chart.js/auto';
+import { Colors } from 'chart.js/auto';
 
 
 const week_days = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"]
@@ -23,7 +25,6 @@ const ForecastGraph = ({ data }) => {
                     data: forecastArr,
                     borderColor: 'rgba(75,192,192,1)',
                     borderWidth: 2,
-                    fill: false,
                 },
             ],
     };
@@ -32,29 +33,19 @@ const ForecastGraph = ({ data }) => {
     return (
         <>
             <div className="forecastChart">
-                <h1>Line Chart Example</h1>
-                <Line
-                    data={weatherData}
-                    options={{
-                        plugins: {
-                            title: {
-                                display: true,
-                                text: "This Week's Weather"
-                            },
-                            legend: {
-                                display: false
-                            },
-                            scales: {
-                                x: [
-                                    {
-                                        type: 'linear', // Use 'linear' for numeric data on the x-axis
-                                        position: 'bottom',
-                                    },
-                                ],
-                            },
-                        }
-                    }}
-                />
+                <h2>This Week's Forecast</h2>
+                <div className="forecastChartBackdrop">
+                    <Line
+                        data={weatherData}
+                        options={{
+                            plugins: {
+                                legend: {
+                                    display: false
+                                }
+                            }
+                        }}
+                    />
+                </div>
             </div>
 
         </>

@@ -59,11 +59,18 @@
     text-align: center;
     border-radius: 6px;
     padding: 5px 0;
-    margin: auto;
+    margin: 21px auto;
 
 }
 
-h2,
+.forecastChartBackdrop {
+    background-color: #f5f5f5;
+    border-radius: 6px;
+    padding: 5px;
+}
+
+
+h3,
 p {
     margin: 2px;
 }
